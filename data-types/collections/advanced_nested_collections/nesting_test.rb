@@ -1,6 +1,7 @@
 require './nesting'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 
 # The intent of this exercise is to practice working with nested collections.
 # Some tests will be able to pass without any enumeration, and others will require
@@ -28,7 +29,7 @@ class NestedTest < MiniTest::Test
   def test_pancake_ingredients
     # skip
     #=======================
-    pancake_ingredients = stores[:dennys][:dishes][0][:ingredients]
+    pancake_ingredients = stores[:dennys][:dishes].first[:ingredients]
     #=======================
     assert_equal ["Flour", "Eggs", "Milk", "Syrup"], pancake_ingredients
   end
@@ -36,6 +37,13 @@ class NestedTest < MiniTest::Test
   def test_rissotto_price
     # skip
     #=======================
+    # risotto_price = nil
+    # stores[:olive_garden][:dishes].each do |dish|
+    #   if dish[:name] == 'Risotto'
+    #     risotto_price = dish[:price]
+    #   end
+    # end
+
     risotto_price = nil
     stores[:olive_garden][:dishes].each do |dish|
       if dish[:name] == 'Risotto'
@@ -60,7 +68,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_restaurants
-    # skip
+    skip
     #=======================
     store_names = []
     # stores.each do |store|
@@ -72,7 +80,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_dishes_names_for_olive_garden
-    # skip
+    skip
     #=======================
     dishes_names = []
     dishes = stores[:olive_garden][:dishes]
@@ -84,7 +92,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_employees_across_all_restaurants
-    # skip
+    skip
     #=======================
     employee_names = []
     stores.values.each do |store|
@@ -97,7 +105,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_all_ingredients_across_all_restaurants
-    # skip
+    skip
     #=======================
     ingredients = []
     stores.values.each do |store|
@@ -129,7 +137,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_full_menu_price_for_olive_garden
-    # skip
+    skip
     #=======================
     full_menu_price = 0
     stores[:olive_garden][:dishes].each do |dish|
@@ -141,7 +149,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_full_menu_for_olive_garden
-    # skip
+    skip
     #=======================
     olive_garden_menu = Hash.new
     stores[:olive_garden][:dishes].each do |dish|
@@ -154,7 +162,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_menu_accross_all_restaurants
-    # skip
+    skip
     #=======================
     full_menu = Hash.new
     stores.values.each do |store|
