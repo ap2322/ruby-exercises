@@ -1,6 +1,7 @@
 class Bag
   def initialize
     @contents = []
+    @grabbed = []
   end
 
   def empty?
@@ -23,9 +24,15 @@ class Bag
     @contents.find {|piece| piece.type == candy_name }
   end
 
-  def grab (candy_name)
-    @contents.find {|piece| piece.type == candy_name}
+  def type
+    @grabbed.map do |piece|
+      piece.type
+    end
   end
 
-  def
+  def grab(candy_name)
+    @contents - [contains?(candy_name)]
+    @grabbed << contains?(candy_name)
+  end
+
 end

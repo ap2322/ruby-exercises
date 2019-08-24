@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/bag'
 require_relative '../lib/candy'
+require 'pry'
 
 class BagTest < Minitest::Test
   def test_a_new_bag_is_empty
@@ -63,7 +64,7 @@ class BagTest < Minitest::Test
   end
 
   def test_get_a_particular_type_of_candy
-    # skip
+    #skip
     bag = Bag.new
     bag << Candy.new("Jawbreaker")
     bag << Candy.new("Jawbreaker")
@@ -71,10 +72,11 @@ class BagTest < Minitest::Test
 
     candy = bag.grab "Jawbreaker"
     assert_equal "Jawbreaker", candy.type
+    assert_equal "Jawbreaker", bag.candies[1].type
   end
 
   def test_grabbing_candy_removes_it_from_the_bag
-    # skip
+    skip
     bag = Bag.new
     bag << Candy.new("Reese's Pieces")
     bag << Candy.new("Junior Mints")
