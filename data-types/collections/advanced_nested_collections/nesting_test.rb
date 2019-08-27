@@ -68,7 +68,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_restaurants
-    skip
+    # skip
     #=======================
     store_names = []
     # stores.each do |store|
@@ -80,7 +80,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_dishes_names_for_olive_garden
-    skip
+    # skip
     #=======================
     dishes_names = []
     dishes = stores[:olive_garden][:dishes]
@@ -148,7 +148,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_full_menu_price_for_olive_garden
-    skip
+    # skip
     #=======================
     full_menu_price = 0
     stores[:olive_garden][:dishes].each do |dish|
@@ -160,7 +160,7 @@ class NestedTest < MiniTest::Test
   end
 
   def test_full_menu_for_olive_garden
-    skip
+    # skip
     #=======================
     olive_garden_menu = Hash.new
     stores[:olive_garden][:dishes].each do |dish|
