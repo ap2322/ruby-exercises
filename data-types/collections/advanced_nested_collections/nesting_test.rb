@@ -92,24 +92,35 @@ class NestedTest < MiniTest::Test
   end
 
   def test_list_of_employees_across_all_restaurants
-    skip
+    # skip
     #=======================
-    employee_names = []
-    stores.values.each do |store|
-      store[:employees].each do |employee|
-        employee_names << employee
-      end
-    end
+    # employee_names = []
+    # stores.values.each do |store|
+    #   store[:employees].each do |employee|
+    #     employee_names << employee
+    #   end
+    # end
+    employee_names = stores.map do |key, value|
+      value[:employees]
+    end.flatten
     #=======================
     assert_equal ["Jeff","Zach","Samantha","Bob","Sue","James","Alvin","Simon","Theodore"], employee_names
   end
 
   def test_list_of_all_ingredients_across_all_restaurants
-    skip
+    # skip
     #=======================
     ingredients = []
-    stores.values.each do |store|
-      store[:dishes].each do |dish|
+    # stores.values.each do |store|
+    #   store[:dishes].each do |dish|
+    #     dish[:ingredients].each do |ingredient|
+    #       ingredients << ingredient
+    #     end
+    #   end
+    # end
+
+    stores.each do |store, info|
+      info[:dishes].each do |dish|
         dish[:ingredients].each do |ingredient|
           ingredients << ingredient
         end
@@ -162,11 +173,11 @@ class NestedTest < MiniTest::Test
   end
 
   def test_menu_accross_all_restaurants
-    skip
+    # skip
     #=======================
     full_menu = Hash.new
-    stores.values.each do |store|
-      store[:dishes].each do |dish|
+    stores.each do |store, info|
+      info[:dishes].each do |dish|
         full_menu[dish[:name]] = dish
       end
     end

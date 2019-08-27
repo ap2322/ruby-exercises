@@ -17,37 +17,48 @@ class AllPatternTest < Minitest::Test
     numbers = [0, 0, 0, 0, 1, 0, 0, 0]
     all_zeros = true
     numbers.each do |number|
-      # Your code goes here
+      all_zeros = false unless number.zero?
     end
     refute all_zeros
   end
 
   def test_all_gone
-    skip
+    # skip
     words = ["gone", "gone", "gone", "gone", "gone", "gone", "gone"]
     all_gone = true
-    # Your code goes here
+    words.each do |word|
+      all_gone = false unless word == "gone"
+    end
     assert all_gone
   end
 
   def test_not_all_gone
-    skip
+    # skip
     words = ["gone", "gone", "gone", "gone", "gone", "there", "gone", "gone"]
-    # Your code goes here
+    all_gone = true
+    words.each do |word|
+      all_gone = false unless word == "gone"
+    end
     refute all_gone
   end
 
   def test_all_empty
-    skip
+    # skip
     strings = ["", "", "", "", "", "", ""]
-    # Your code goes here
+    all_empty = true
+    strings.each do |string|
+      all_empty = false unless string.length == 0
+    end
     assert all_empty
   end
 
   def test_not_all_empty
-    skip
+    # skip
     strings = ["", "", "", "full", "", "", ""]
-    # Your code goes here
+    all_empty = true
+    strings.each do |string|
+      all_empty = false unless string.length == 0
+    end 
     refute all_empty
   end
 

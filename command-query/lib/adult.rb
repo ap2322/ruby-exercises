@@ -5,10 +5,20 @@ class Adult
   end
 
   def sober?
-    if @drinks == 2
+    if @drinks >=4
+      @sober = false
+      "The adult doesn't get more sober from drinking more."
+    elsif @drinks == 3
       @sober = false
       "Yeah, OK. The adult is drunk."
-    elsif @drinks 
+    elsif @drinks == 2
+      @sober = true
+      "Not drunk yet."
+    else
+      @sober = true
+      "Still sober."
+    end
+    @sober 
   end
 
   def consume_an_alcoholic_beverage
