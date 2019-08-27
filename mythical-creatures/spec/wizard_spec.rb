@@ -1,4 +1,4 @@
-require 'spec/spec_helper'
+require 'spec_helper'
 require_relative '../lib/wizard'
 
 describe Wizard do
