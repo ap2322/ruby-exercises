@@ -22,7 +22,7 @@ class SortByPatternTest < Minitest::Test
     things = ["pill", "box", "glass", "water", "sponge"]
     transformed = []
     things.each do |thing|
-      # Your code goes here
+      # your code here
     end
     transformed = transformed.sort
     sorted = []

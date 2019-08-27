@@ -16,11 +16,11 @@ class FindUsingMaxByTest < Minitest::Test
 
   # This one is missing the block inside the loop.
   def test_shortest_word
-    skip
+    # skip
     words = ["apple", "banana", "cherry", "date", "eggplant"]
 
     found_word = words.max_by do |word|
-      # write code here
+      word.length*(-1) #inverts the value of the int from .length
     end
 
     assert_equal "date", found_word
@@ -28,57 +28,57 @@ class FindUsingMaxByTest < Minitest::Test
 
   # This one is missing the entire loop
   def test_array_with_the_most_items
-    skip
+    # skip
     arrays = [[:a, :b, :c], [1, 2, 3, 4, 5], ["zoo", :things, :stuff]]
 
-    # write code here
+    biggest_array = arrays.max_by {|arry| arry.length}
 
     assert_equal [1, 2, 3, 4, 5], biggest_array
   end
 
   # You're on your own on this one.
   def test_array_with_the_fewest_items
-    skip
+    # skip
     arrays = [[:a, :b, :c], [1, 2, 3, 4, 5], ["zoo", :things, :stuff]]
 
-    # write code here
+    smallest_array = arrays.min_by {|arry| arry.length}
 
     assert_equal [:a, :b, :c], smallest_array
   end
 
   def test_biggest_number
-    skip
+    # skip
     numbers = [1, 10, 100, 1000, 10000, 1000000]
 
-    # write code here
+    found = numbers.max
 
     assert_equal 1000000, found
   end
 
   def test_smallest_number
-    skip
+    # skip
     numbers = [1, 10, 100, 1000, 10000, 1000000]
 
-    # write code here
+    found = numbers.min
 
     assert_equal 1, found
   end
 
   def test_most_programmers
-    skip
+    # skip
     programmers = {ruby: ["katrina", "sandi", "jim", "aaron", "desi"], java: ["abby", "jon", "susan"]}
 
-    # write code here
-
+    most_programmers = programmers.max_by {|program, programmers| programmers.length}
+    # most_programmers = programmers.max
     assert_equal :ruby, most_programmers.first
   end
 
   def test_fewest_programmers
-    skip
+    # skip
     programmers = {ruby: ["katrina", "sandi", "jim", "aaron", "desi"], java: ["abby", "jon", "susan"]}
 
-    # write code here
-
+    fewest_programmers = programmers.min_by {|program, programmers| programmers.length}
+    # fewest_programmers = programmers.min
     assert_equal :java, fewest_programmers.first
   end
 end
