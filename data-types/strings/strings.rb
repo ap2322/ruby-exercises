@@ -222,27 +222,27 @@ class StringTest < Minitest::Test
     # skip
     phrase = "   \n  \tto the    moon\n\n\t    "
     # In place of the line below, call a method to acheive the expected outcome
-    actual = phrase[/./]
+    actual = phrase.gsub(/[^0-9A-Za-z]/, ' ').strip
     expected = "to the    moon"
 
     assert_equal expected, actual
   end
 
   def test_22
-    skip
+    # skip
     phrase = "   \n  \tto the    moon\n\n\t    "
     # In place of the line below, call a method to acheive the expected outcome
-    actual = phrase.chop
+    actual = phrase.rstrip
     expected = "   \n  \tto the    moon"
 
     assert_equal expected, actual
   end
 
   def test_23
-    skip
+    # skip
     phrase = "   \n  \tto the    moon\n\n\t    "
     # In place of the line below, call a method to acheive the expected outcome
-    actual = phrase._____
+    actual = phrase.___
     expected = "  to the    moon\n\n\t    "
 
     assert_equal expected, actual
