@@ -14,7 +14,7 @@ class ZipTest < Minitest::Test
   def test_menu
     list1 = ["NY Strip Steak", "Lamb Stew", "Grilled Salmon"]
     list2 = [29, 23, 26]
-    # Your code goes here
+    prices = list1.zip(list2)
     assert_equal [["NY Strip Steak", 29], ["Lamb Stew", 23], ["Grilled Salmon", 26]], prices
   end
 
