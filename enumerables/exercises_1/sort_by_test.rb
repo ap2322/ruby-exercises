@@ -46,7 +46,6 @@ class SortByTest < Minitest::Test
     # skip
     prices = [3.02, 9.91, 7.9, 10.01, 11.0]
     sorted = prices.sort_by {|price| price - price.to_i }
-    binding.pry
     assert_equal [11.0, 10.01, 3.02, 7.9, 9.91], sorted
   end
 

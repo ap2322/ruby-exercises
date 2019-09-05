@@ -1,6 +1,7 @@
 gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 
 class SortByPatternTest < Minitest::Test
 
@@ -22,7 +23,7 @@ class SortByPatternTest < Minitest::Test
     things = ["pill", "box", "glass", "water", "sponge"]
     transformed = []
     things.each do |thing|
-      # your code here
+      transformed << [thing.reverse, thing]
     end
     transformed = transformed.sort
     sorted = []
@@ -33,10 +34,12 @@ class SortByPatternTest < Minitest::Test
   end
 
   def test_sort_by_distance
-    skip
+    # skip
     distances = ["1cm", "9cm", "30cm", "4cm", "2cm"]
     transformed = []
-    # Your code goes here
+    distances.each do |distance|
+      transformed << [distance.to_i, distance]
+    end
     transformed = transformed.sort
     sorted = []
     transformed.each do |sort_key, distance|
@@ -46,23 +49,50 @@ class SortByPatternTest < Minitest::Test
   end
 
   def test_sort_by_length
-    skip
+    # skip
     words = ["heteromorph", "ancyloceratina", "bioengineering", "mathematical", "bug"]
-    # Your code goes here
+    transformed = []
+    words.each do |word|
+      transformed << [word.length, word]
+    end
+    transformed = transformed.sort
+    sorted = []
+    transformed.each do |sort_key, word|
+      sorted << word
+    end
     assert_equal ["bug", "heteromorph", "mathematical", "ancyloceratina", "bioengineering"], sorted
   end
 
   def test_sort_by_proximity_to_ten
-    skip
+    # skip
     prices = [3.02, 9.91, 17.9, 10.01, 11.0]
-    # Your code goes here
+    transformed = []
+    prices.each do |price|
+      dist_from_10 = (price - 10).abs
+      transformed << [dist_from_10, price]
+    end
+    transformed = transformed.sort
+    sorted = []
+    transformed.each do |sort_key, price|
+      sorted << price
+    end
     assert_equal [10.01, 9.91, 11.0, 3.02, 17.9], sorted
   end
 
   def test_sort_by_number_of_cents
-    skip
+    # skip
     prices = [3.02, 9.91, 7.9, 10.01, 11.0]
-    # Your code goes here
+    transformed = []
+    prices.each do |price|
+      cents = price - price.to_i
+      transformed << [cents, price]
+    end
+    transformed = transformed.sort
+    sorted = []
+    transformed.each do |sort_key, price|
+      sorted << price
+    end
+
     assert_equal [11.0, 10.01, 3.02, 7.9, 9.91], sorted
   end
 
